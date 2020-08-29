@@ -1,0 +1,3 @@
+include ':dotProgressBar'
+include ':app'
+rootProject.name = "Vishal Dairy"

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#18AAFF</color>
+    <color name="colorPrimaryDark">#18AAFF</color>
+    <color name="colorAccent">#DE1B1B</color>
+
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="yellow">#FBFFCB</color>
+
+    <color name="orange1">#FFE5B0</color>
+    <color name="orange2">#FF8A00</color>
+
+    <color name="red1">#DD2E44</color>
+    <color name="red2">#DB3022</color>
+    <color name="red3">#D70D0D</color>
+
+    <color name="blue1">#EAF7FF</color>
+    <color name="blue2">#E0F4FF</color>
+    <color name="blue3">#DFF9FF</color>
+    <color name="blue4">#D2F7FF</color>
+    <color name="blue5">#9EDCFF</color>
+    <color name="blue6">#3BB6FF</color>
+
+    <color name="grey1">#F8F8F8</color>
+    <color name="grey2">#F9F9F9</color>
+    <color name="grey3">#C4C4C4</color>
+    <color name="grey4">#AAAAAA</color>
+    <color name="grey5">#9F9F9F</color>
+    <color name="grey6">#9E9E9E</color>
+    <color name="grey7">#8F8F8F</color>
+    <color name="grey8">#868686</color>
+    <color name="grey9">#757575</color>
+    <color name="grey10">#716E6E</color>
+    <color name="grey11">#464646</color>
+    <color name="grey12">#313131</color>
+    <color name="grey13">#282828</color>
+    <color name="grey14">#232323</color>
+</resources>

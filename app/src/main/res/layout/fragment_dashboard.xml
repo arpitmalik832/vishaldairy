@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.vishaldairy.viewModel.VMHome" />
+    </data>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parent_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                app:layout_constraintBottom_toTopOf="@id/nested_scroll_view"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/title"
+                    style="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:gravity="center" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.core.widget.NestedScrollView
+                android:id="@+id/nested_scroll_view"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                <LinearLayout
+                    android:id="@+id/linear_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/search_section_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/search_section_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="25dp"
+                            android:background="@color/colorPrimaryDark"
+                            android:gravity="center_horizontal"
+                            android:paddingBottom="35dp"
+                            android:text="@string/may_i_help_you"
+                            android:textAlignment="center"
+                            android:textColor="@android:color/white"
+                            android:textSize="20sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/search_section_edit_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:autofillHints="search"
+                            android:background="@drawable/background_white_fill_with_c3c3c3_color_stroke_1dp_with_corners_10dp"
+                            android:drawableEnd="@drawable/icon_search"
+                            android:drawablePadding="10dp"
+                            android:ems="10"
+                            android:hint="@string/search_here_for_your_needs"
+                            android:inputType="text"
+                            android:paddingStart="20dp"
+                            android:paddingTop="14dp"
+                            android:paddingEnd="20dp"
+                            android:paddingBottom="12dp"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/top_bar_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:gravity="center_vertical"
+                        android:visibility="gone">
+
+                        <LinearLayout
+                            android:id="@+id/top_bar_plan_layout"
+                            android:layout_width="110dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/background_color_primary_fill_with_corners_10dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingStart="10dp"
+                            android:paddingTop="15dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="15dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/top_bar_next_due_layout"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/top_bar_plan_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:text="@string/plan"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/top_bar_plan_details"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:text="@string/monthly"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/top_bar_next_due_layout"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/background_color_primary_fill_with_corners_10dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingStart="10dp"
+                            android:paddingTop="15dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="15dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@id/top_bar_days_left_layout"
+                            app:layout_constraintStart_toEndOf="@id/top_bar_plan_layout"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/top_bar_next_due_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:text="@string/last_order"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/top_bar_next_due_details"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:text="@string/_20_april_2020"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/top_bar_days_left_layout"
+                            android:layout_width="110dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/background_color_primary_fill_with_corners_10dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingStart="10dp"
+                            android:paddingTop="15dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="15dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/top_bar_next_due_layout"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/top_bar_days_left_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:text="@string/days_left"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/top_bar_days_left_details"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:text="@string/_10_days"
+                                android:textAlignment="center"
+                                android:textColor="@android:color/white"
+                                android:textSize="18sp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/swipe_add_item_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="30dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginEnd="30dp">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/swipe_add_item_image"
+                            android:layout_width="wrap_content"
+                            android:layout_height="0dp"
+                            android:background="@drawable/background_color_primary_fill_with_corners_10dp"
+                            android:drawablePadding="-8dp"
+                            android:elevation="1dp"
+                            android:paddingStart="8dp"
+                            android:paddingEnd="8dp"
+                            app:drawableEndCompat="@drawable/icon_arrow_right"
+                            app:drawableStartCompat="@drawable/icon_arrow_right"
+                            app:drawableTint="@android:color/white"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/swipe_add_item_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/background_white_fill_with_d4d4d4_stroke_2dp_with_corners_20dp"
+                            android:gravity="center"
+                            android:padding="10dp"
+                            android:text="@string/swipe_to_add_items"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/featured_head"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:text="@string/featured"
+                        android:textColor="@android:color/black"
+                        android:textSize="22sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/featured_details_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center">
+
+                        <RelativeLayout
+                            android:id="@+id/featured_details_text_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginBottom="15dp"
+                            android:background="@drawable/background_ffe5b0_fill_with_corners_10dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintTop_toTopOf="parent">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/featured_featured_today_offer"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@drawable/background_ff8a00_color_fill_with_right_corners_10dp"
+                                android:elevation="1dp"
+                                android:paddingStart="15dp"
+                                android:paddingTop="10dp"
+                                android:paddingEnd="15dp"
+                                android:paddingBottom="10dp"
+                                android:text="@string/today_s_offer"
+                                android:textColor="@android:color/white"
+                                android:textSize="16sp" />
+
+                            <LinearLayout
+                                android:id="@+id/featured_featured_daily_deals_layout"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/featured_featured_today_offer"
+                                android:layout_marginStart="20dp"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="240dp"
+                                android:layout_marginBottom="20dp"
+                                android:gravity="center"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/featured_featured_daily_deals"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/daily_deals"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/featured_featured_daily_deals_check_now"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center"
+                                    android:text="@string/check_now"
+                                    android:textColor="@android:color/black"
+                                    android:textSize="14sp"
+                                    app:drawableEndCompat="@drawable/icon_arrow_right"
+                                    app:drawableTint="@android:color/black" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/featured_featured_today_offer_image"
+                            android:layout_width="210dp"
+                            android:layout_height="0dp"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="@string/today_s_offer"
+                            android:elevation="1dp"
+                            android:src="@drawable/image_daily_deals"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/featured_details_layout_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center"
+                        app:cardCornerRadius="@dimen/_6sdp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/banner"
+                            android:src="@drawable/banner1" />
+
+                    </androidx.cardview.widget.CardView>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="20dp"
+                        android:background="@drawable/background_e0f4ff_color_fill_left_corners_10dp"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="5dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/categories_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/categories_head"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:paddingStart="10dp"
+                                android:paddingTop="5dp"
+                                android:paddingEnd="10dp"
+                                android:paddingBottom="5dp"
+                                android:text="@string/categories"
+                                android:textColor="@android:color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintVertical_bias="0.0" />
+
+                            <!--<androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/categories_view_all"
+                                android:layout_width="120dp"
+                                android:layout_height="0dp"
+                                android:text="@string/view_all"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textAlignment="textEnd"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="20dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/categories_head"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:gravity="center_vertical|end" />-->
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginEnd="10dp">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/categories_recycler_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp" />
+
+                            <LinearLayout
+                                android:id="@+id/no_categories_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingTop="30dp"
+                                android:paddingBottom="20dp"
+                                android:visibility="gone">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/no_categories_image"
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:contentDescription="@string/currently_no_categories"
+                                    android:src="@drawable/icon_not_found" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/no_categories_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:text="@string/currently_no_categories"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="22sp" />
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:id="@+id/error_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:paddingTop="30dp"
+                                android:paddingBottom="20dp"
+                                android:visibility="gone">
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/error_image"
+                                    android:layout_width="120dp"
+                                    android:layout_height="120dp"
+                                    android:contentDescription="@string/currently_no_products"
+                                    android:src="@drawable/icon_error" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/error_text"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="5dp"
+                                    android:gravity="center_horizontal"
+                                    android:paddingStart="60dp"
+                                    android:paddingEnd="60dp"
+                                    android:text="@string/some_error_please_try_again_later"
+                                    android:textAlignment="center"
+                                    android:textColor="@color/colorPrimary"
+                                    android:textSize="22sp" />
+
+                            </LinearLayout>
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/featured_details_layout_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="160dp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:gravity="center"
+                        app:cardCornerRadius="@dimen/_6sdp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:contentDescription="@string/banner"
+                            android:src="@drawable/banner3" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <!--<LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/background_ffe7bf_color_fill_right_corners_10dp"
+                        android:orientation="vertical"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="5dp"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginBottom="30dp">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/other_food_items_head_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/other_food_items_head"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:text="@string/other_food_items"
+                                android:textColor="@android:color/black"
+                                android:textSize="22sp"
+                                android:textStyle="bold"
+                                android:paddingTop="5dp"
+                                android:paddingBottom="5dp"
+                                android:paddingStart="20dp"
+                                android:paddingEnd="10dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@id/other_food_items_view_all" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/other_food_items_view_all"
+                                android:layout_width="120dp"
+                                android:layout_height="0dp"
+                                android:text="@string/view_all"
+                                android:textColor="@color/colorPrimary"
+                                android:textSize="14sp"
+                                android:textAlignment="textEnd"
+                                android:textStyle="bold"
+                                android:paddingStart="10dp"
+                                android:paddingEnd="20dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/other_food_items_head"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:gravity="center_vertical|end" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/other_food_items_recycler_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:paddingStart="20dp"
+                            android:paddingEnd="20dp"
+                            android:layout_marginTop="5dp"/>
+
+                    </LinearLayout>-->
+
+                </LinearLayout>
+
+            </androidx.core.widget.NestedScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@android:color/white"
+            android:isScrollContainer="false"
+            app:headerLayout="@layout/layout_navigation_view" />
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</layout>
